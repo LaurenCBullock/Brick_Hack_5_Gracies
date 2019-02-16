@@ -5,8 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class RecipeListReader
 {
-    public string[] name;
-    public string[] id;
+    public Object recipes;
+
+    public RecipeListReader()
+    {
+
+    }
 
     public static RecipeListReader CreateFromJSON(string jsonString)
     {

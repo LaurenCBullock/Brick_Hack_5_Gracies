@@ -6,54 +6,29 @@ using UnityEngine.Networking;
 
 public class WegmansAPIManager : MonoBehaviour
 {
+    
+    private StreamReader streamReader;
+    private RecipeListReader recipeList;
+    
     void Start()
     {
-        // A correct website page.
-        StartCoroutine(GetRequest("https://api.wegmans.io/meals/recipes?api-version=2018-10-18&Subscription-Key=d3e209e9e5aa42fc8cda48193b56255e"));
+        StartCoroutine(DownloadFile());
     }
-
-    IEnumerator GetRequest(string uri)
+    
+    IEnumerator DownloadFile()
     {
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
+        var uwr = new UnityWebRequest("https://api.wegmans.io/meals/recipes?api-version=2018-10-18&Subscription-Key=d3e209e9e5aa42fc8cda48193b56255e", UnityWebRequest.kHttpVerbGET);
+        string path = ("recipeList.Json");
+        uwr.downloadHandler = new DownloadHandlerFile(path);
+        yield return uwr.SendWebRequest();
+        if (uwr.isNetworkError || uwr.isHttpError)
+            Debug.LogError(uwr.error);
+        else
         {
-            // Request and wait for the desired page.
-            yield return webRequest.SendWebRequest();
+            Debug.Log("File successfully downloaded and saved to " + path);
+            
 
-            string[] pages = uri.Split('/');
-            int page = pages.Length - 1;
-
-            if (webRequest.isNetworkError)
-            {
-                Debug.Log(pages[page] + ": Error: " + webRequest.error);
-            }
-            else
-            {
-                Debug.Log(pages[page] + ":\nReceived: " + webRequest.downloadHandler.text);
-            }
         }
+            
     }
-    //private StreamReader streamReader;
-    //
-    //void Start()
-    //{
-    //    StartCoroutine(DownloadFile());
-    //}
-    //
-    //IEnumerator DownloadFile()
-    //{
-    //    var uwr = new UnityWebRequest("https://api.wegmans.io/meals/recipes?api-version=2018-10-18&Subscription-Key=d3e209e9e5aa42fc8cda48193b56255e", UnityWebRequest.kHttpVerbGET);
-    //    string path = ("recipeList.Json");
-    //    uwr.downloadHandler = new DownloadHandlerFile(path);
-    //    yield return uwr.SendWebRequest();
-    //    if (uwr.isNetworkError || uwr.isHttpError)
-    //        Debug.LogError(uwr.error);
-    //    else
-    //    {
-    //        Debug.Log("File successfully downloaded and saved to " + path);
-    //        streamReader = new StreamReader(path);
-    //
-    //        Debug.Log(streamReader.ReadLine());
-    //    }
-    //        
-    //}
 }
