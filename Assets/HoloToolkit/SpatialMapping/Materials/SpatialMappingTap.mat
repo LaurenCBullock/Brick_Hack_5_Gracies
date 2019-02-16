@@ -11,6 +11,7 @@ Material:
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _EMISSION _USEWIREFRAME_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
@@ -72,7 +73,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _UseWireframe: 1
-    - _WireframeFill: 0.13
+    - _WireframeFill: 0
     - _WireframeThick: 0
     - _ZWrite: 1
     m_Colors:
@@ -80,4 +81,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _PulseColor: {r: 0.6544118, g: 0.7887331, b: 1, a: 1}
-    - _WireframeColor: {r: 0.5514706, g: 0.20274653, b: 0.20274653, a: 1}
+    - _WireframeColor: {r: 0, g: 0, b: 0, a: 0}
