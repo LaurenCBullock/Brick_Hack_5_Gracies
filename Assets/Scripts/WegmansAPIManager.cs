@@ -6,29 +6,28 @@ using UnityEngine.Networking;
 
 public class WegmansAPIManager : MonoBehaviour
 {
-    
-    private StreamReader streamReader;
-    private RecipeListReader recipeList;
-    
+    StreamReader streamReader;
     void Start()
     {
-        StartCoroutine(DownloadFile());
+        StartCoroutine(GetText());
     }
-    
-    IEnumerator DownloadFile()
+
+    IEnumerator GetText()
     {
-        var uwr = new UnityWebRequest("https://api.wegmans.io/meals/recipes?api-version=2018-10-18&Subscription-Key=d3e209e9e5aa42fc8cda48193b56255e", UnityWebRequest.kHttpVerbGET);
-        string path = ("recipeList.Json");
-        uwr.downloadHandler = new DownloadHandlerFile(path);
-        yield return uwr.SendWebRequest();
-        if (uwr.isNetworkError || uwr.isHttpError)
-            Debug.LogError(uwr.error);
+        UnityWebRequest www = new UnityWebRequest("https://api.wegmans.io/meals/recipes?api-version=2018-10-18&Subscription-Key=4a23391d46eb4bd4978fb576d77df423");
+        www.downloadHandler = new DownloadHandlerFile("recipeList.JSON");
+        yield return www.SendWebRequest();
+
+        if (www.isNetworkError || www.isHttpError)
+        {
+            Debug.Log(www.error);
+        }
         else
         {
-            Debug.Log("File successfully downloaded and saved to " + path);
+            // Show results as text
+            streamReader = new StreamReader("recipeList.JSON");
+            Debug.Log(streamReader.Peek());
             
-
         }
-            
     }
 }

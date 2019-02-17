@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class RecipeListReader
 {
-    public Object recipes;
+    public string name;
 
     public RecipeListReader()
     {
