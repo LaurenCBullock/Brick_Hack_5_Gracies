@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using LitJson;
 using System;
 using System.Collections;
+using System.IO.Compression;
 
 public class WegmansAPIManager : MonoBehaviour
 {
