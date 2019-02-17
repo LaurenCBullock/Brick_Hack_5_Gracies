@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PanHandler : MonoBehaviour {
 
-    GameObject pan = new GameObject("pan_2");
-	// Use this for initialization
 	void Start () {
         
 	}
@@ -15,8 +13,14 @@ public class PanHandler : MonoBehaviour {
 
 	}
 
-    void OnTriggerEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
-        col.transform.parent = pan.transform;
+        if (col.tag.Equals("food")) {
+            col.GetComponent<Rigidbody>().isKinematic = true;
+            col.GetComponent<Rigidbody>().useGravity = false;
+            col.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            col.GetComponent<MeshCollider>().isTrigger = true;
+            col.transform.SetParent(GameObject.Find("pan_2").GetComponent<Transform>(), true);
+        };
     }
 }
