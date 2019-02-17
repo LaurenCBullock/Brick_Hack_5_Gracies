@@ -8,3 +8,6 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/GoodGracie.unity
+    guid: c111264bc70fe054baea3c9504da3d0c

@@ -570,11 +570,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Gracie
   metroPackageVersion: 
-  metroCertificatePath: 
+  metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 80f5f94cc7e5d501
   metroApplicationDescription: Gracie
   wsaImages: {}
   metroTileShortName: 
