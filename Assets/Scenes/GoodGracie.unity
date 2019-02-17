@@ -151,7 +151,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &202848143 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011964089612, guid: a3de4bde509a12c4794522b17abcea44,
@@ -190,7 +190,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &268033000 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011653470102, guid: 8d8015ded5f690247a600cc376e7b0e8,
@@ -215,7 +215,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!64 &268033005
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -504,7 +504,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &615084062
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &672010624
 Prefab:
   m_ObjectHideFlags: 0
@@ -728,7 +728,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &794633648
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 794633652}
   - component: {fileID: 794633650}
   - component: {fileID: 794633649}
+  - component: {fileID: 794633654}
   - component: {fileID: 794633651}
   m_Layer: 0
   m_Name: CuttingBoard
@@ -758,11 +759,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
   m_Interpolate: 2
-  m_Constraints: 126
-  m_CollisionDetection: 1
+  m_Constraints: 14
+  m_CollisionDetection: 2
 --- !u!23 &794633650
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -803,13 +804,13 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 794633648}
-  m_Material: {fileID: 13400000, guid: 5b9ce14c24048e74f899012cfbfd11c4, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
-  m_CookingOptions: -1
-  m_SkinWidth: 0.02
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &794633652
 MeshFilter:
@@ -831,6 +832,18 @@ Transform:
   m_Father: {fileID: 1550355657}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &794633654
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 794633648}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &956925277 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000010917563242, guid: 6e2574af69e1ddd4497a11adb45777a1,
@@ -869,7 +882,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &1061250298
 Prefab:
   m_ObjectHideFlags: 0
@@ -1081,7 +1094,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &1318740017
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1282,6 +1295,21 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010663249712, guid: 07c1ce2b91eb18f4c83d7d36268a0341,
     type: 2}
   m_PrefabInternal: {fileID: 475840581}
+--- !u!114 &1875990616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1875990614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3e8820187d41849b2a597b39697b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DragSpeed: 1.5
+  DragScale: 1.5
+  MaxDragDistance: 3
+  draggingEnabled: 1
 --- !u!64 &1875990618
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1310,7 +1338,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &1942974084
 Prefab:
   m_ObjectHideFlags: 0
@@ -1411,7 +1439,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &2058506674
 Prefab:
   m_ObjectHideFlags: 0
