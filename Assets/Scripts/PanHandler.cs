@@ -7,7 +7,7 @@ public class PanHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        
 	}
 	
 	// Update is called once per frame
@@ -15,8 +15,11 @@ public class PanHandler : MonoBehaviour {
 
 	}
 
-    public void connectToFood()
+    void OnCollisionEnter(Collision col)
     {
-
+        if (col.gameObject.tag == "food")
+        {
+            col.transform.parent = this.transform;
+        }
     }
 }
