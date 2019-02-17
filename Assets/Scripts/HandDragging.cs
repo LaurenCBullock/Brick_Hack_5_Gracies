@@ -28,6 +28,7 @@ public class HandDragging : MonoBehaviour, IManipulationHandler
     {
         InputManager.Instance.PushModalInputHandler(gameObject);
         lastPosition = transform.position;
+        this.GetComponent<Collider>().attachedRigidbody.useGravity = false;
     }
 
     public void OnManipulationUpdated(ManipulationEventData eventData)
@@ -44,11 +45,16 @@ public class HandDragging : MonoBehaviour, IManipulationHandler
     public void OnManipulationCompleted(ManipulationEventData eventData)
     {
         InputManager.Instance.PopModalInputHandler();
+        this.GetComponent<Collider>().attachedRigidbody.useGravity = true;
+
+
     }
 
     public void OnManipulationCanceled(ManipulationEventData eventData)
     {
         InputManager.Instance.PopModalInputHandler();
+        this.GetComponent<Collider>().attachedRigidbody.useGravity = true;
+
     }
 
     void Drag(Vector3 positon)
