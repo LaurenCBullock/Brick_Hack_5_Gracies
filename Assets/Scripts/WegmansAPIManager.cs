@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections;
-using System.IO.Compression;
+using System.IO;
+using System.Collections.Generic;
 
 public class WegmansAPIManager : MonoBehaviour
 {
+    StreamReader streamReader;
     void Start()
     {
         Main();
@@ -12,36 +13,21 @@ public class WegmansAPIManager : MonoBehaviour
 
 
     public static void Main() {
-        var fromJson = "{\"recipes\":[{\"id\":21407,\"name\":\"Asian Cauliflower \\\"Rice\\\" Lettuce Wraps\",\"_links\":[{\"href\":\"/meals/recipes/21407/?api-version=2018-10-18\",\"rel\":\"self\",\"type\":\"GET\"}]},{\"id\":21472,\"name\":\"Beef Fajitas\",\"_links\":[{\"href\":\"/meals/recipes/21472/?api-version=2018-10-18\",\"rel\":\"self\",\"type\":\"GET\"}]}]}";
-        RecipeList fromObject = RecipeList.CreateFromJSON(fromJson);
-        Debug.Log(fromObject);
+        
     }
 
-    [System.Serializable]
-    public class RecipeList
+    public string[] GetRecipeNames()
     {
-        public Recipe recipes;
+        string all;
+        List<string> parsedData;
+        int count;
+        streamReader = new StreamReader("ingredients.JSON");
+        all = streamReader.ReadToEnd();
 
-        public static RecipeList CreateFromJSON(string json)
+        while (all.IndexOf("name") < 0)
         {
-            return JsonUtility.FromJson<RecipeList>(json);
+            parsedData[]
+            count ++;       
         }
-    }
-
-    [System.Serializable]
-    public class Recipe
-    {
-        public string id;
-        public string name;
-        public Links _links;
-    }
-
-
-    [System.Serializable]
-    public class Links
-    {
-        public string href;
-        public string rel;
-        public string type;
     }
 }

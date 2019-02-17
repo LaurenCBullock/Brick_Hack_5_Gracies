@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PanHandler : MonoBehaviour {
 
-
+    GameObject pan = new GameObject("pan_2");
 	// Use this for initialization
 	void Start () {
         
@@ -15,11 +15,8 @@ public class PanHandler : MonoBehaviour {
 
 	}
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collision col)
     {
-        if (col.gameObject.tag == "food")
-        {
-            col.transform.parent = this.transform;
-        }
+        col.transform.parent = pan.transform;
     }
 }
